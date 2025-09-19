@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static lib.Assertions.*;
+import static lib.DataGenerator.getRegistrationData;
 
 public class UserRegisterTest extends BaseTestcase {
 
@@ -20,10 +21,7 @@ public class UserRegisterTest extends BaseTestcase {
 
         Map<String, String> userData = new HashMap<>();
         userData.put("email", email);
-        userData.put("password", "123");
-        userData.put("username", "learnqa");
-        userData.put("firstName", "aez");
-        userData.put("lastName", "aez");
+        userData = getRegistrationData(userData);
 
         Response responceCreateAuth = RestAssured
                 .given()
@@ -40,12 +38,7 @@ public class UserRegisterTest extends BaseTestcase {
 
         String email = DataGenerator.getRandomEmail();
 
-        Map<String, String> userData = new HashMap<>();
-        userData.put("email", email);
-        userData.put("password", "123");
-        userData.put("username", "learnqa");
-        userData.put("firstName", "aez");
-        userData.put("lastName", "aez");
+        Map<String, String> userData = getRegistrationData();
 
         Response responceCreateAuth = RestAssured
                 .given()
