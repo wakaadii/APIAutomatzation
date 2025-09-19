@@ -56,6 +56,7 @@ public class UserAuthTest extends BaseTestcase {
         RequestSpecification spec = RestAssured.given();
         spec.baseUri("https://playground.learnqa.ru/api/user/auth");
 
+
         if (condition.equals("cookie")) {
             spec.cookie("auth_sid", this.cookie);
         } else if (condition.equals("header")) {
@@ -67,6 +68,4 @@ public class UserAuthTest extends BaseTestcase {
         Response responceForCheck = spec.get().andReturn();
         Assertions.assertJsonByName(responceForCheck, "user_id", 0);
     }
-
-
 }
